@@ -30,4 +30,5 @@ export * from "./components/ui/tabs";
 export * from "./components/ui/textarea";
 export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
+export * from "./data";
 export { cn } from "./lib/utils";

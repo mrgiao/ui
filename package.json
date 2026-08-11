@@ -1,6 +1,6 @@
 {
   "name": "@mrgiao/ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -18,11 +18,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/index.css",
-    "./data": {
-      "types": "./dist/data.d.ts",
-      "import": "./dist/data.js"
-    }
+    "./styles.css": "./dist/index.css"
   },
   "scripts": {
     "prepare": "npm run build",
