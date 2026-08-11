@@ -41,9 +41,12 @@ The package is published to GitHub Packages. A consuming project needs GitHub
 Packages authentication and this npm scope mapping:
 
 ```bash
+npm login --scope=@mrgiao --auth-type=legacy --registry=https://npm.pkg.github.com
 npm config set @mrgiao:registry https://npm.pkg.github.com
 npm install @mrgiao/ui
 ```
+
+Use a GitHub token with package read access when npm prompts for credentials.
 
 Then import only the components that project uses:
 
