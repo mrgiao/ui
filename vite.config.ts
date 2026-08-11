@@ -1,14 +1,41 @@
-import path from "path"
-import tailwindcss from "@tailwindcss/vite"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import tailwindcss from "@tailwindcss/vite";
+import dts from "vite-plugin-dts";
+import { defineConfig } from "vitest/config";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [tailwindcss(), dts({ rollupTypes: true })],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(fileURLToPath(new URL(".", import.meta.url)), "./src"),
     },
   },
-})
+  build: {
+    lib: {
+      entry: path.resolve(
+        fileURLToPath(new URL(".", import.meta.url)),
+        "./src/index.ts",
+      ),
+      formats: ["es"],
+      fileName: "index",
+    },
+    rollupOptions: {
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "react-aria-components",
+        "lucide-react",
+        "sonner",
+        "@tanstack/react-table",
+      ],
+    },
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/test/setup.ts",
+  },
+});
