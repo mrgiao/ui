@@ -1,12 +1,11 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
-import dts from "vite-plugin-dts";
 import { defineConfig } from "vitest/config";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), dts({ rollupTypes: true })],
+  plugins: [tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(fileURLToPath(new URL(".", import.meta.url)), "./src"),

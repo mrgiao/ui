@@ -1,10 +1,10 @@
 {
   "name": "@mrgiao/ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist",
     "README.md",
@@ -15,14 +15,15 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js"
     },
     "./styles.css": "./dist/index.css"
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run typecheck && vite build",
+    "build": "npm run typecheck && npm run declarations && vite build",
+    "declarations": "tsc -p tsconfig.build.json",
     "lint": "biome lint .",
     "format": "biome format --write .",
     "format:check": "biome format .",
@@ -55,7 +56,6 @@
     "jsdom": "^30.0.1",
     "typescript": "~6",
     "vite": "^8",
-    "vite-plugin-dts": "^5.0.3",
     "vitest": "^4.1.10"
   }
 }
