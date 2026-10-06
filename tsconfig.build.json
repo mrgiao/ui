@@ -7,5 +7,6 @@
     "declarationMap": false,
     "outDir": "./dist/types",
     "rootDir": "./src"
-  }
+  },
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/test"]
 }
