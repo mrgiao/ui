@@ -2,6 +2,8 @@
 
 The shared UI library for mrgiao projects.
 
+React and ReactDOM are peer dependencies. Consumers supply one matching React 19 installation; the library does not install its own React runtime. Version 0.0.7 adds keyboard-menu and dialog focus regression tests.
+
 It is built from shadcn source components using the React Aria base. The
 library owns accessible interaction behavior, component composition, semantic
 Tailwind classes, and CVA variants. Each consuming project owns its theme
